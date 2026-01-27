@@ -23,4 +23,4 @@ jobs:
           context: .
           push: true
           # Use the secret variable so it works automatically
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/voting-app:latest
+          tags: mohneeshdubey/voting-app:latest
