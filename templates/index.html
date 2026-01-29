@@ -1,36 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K3s Voting App</title>
+    <title>Nitin's Bike Purchase Suggestion</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; padding: 50px; }
-        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; }
-        h1 { color: #333; }
-        .buttons { margin-top: 20px; }
-        button { padding: 15px 30px; font-size: 18px; margin: 10px; cursor: pointer; border: none; border-radius: 5px; transition: 0.3s; }
-        .btn-cats { background-color: #ff4d4d; color: white; }
-        .btn-dogs { background-color: #4da6ff; color: white; }
-        button:hover { opacity: 0.8; }
-        .result { margin-top: 20px; font-weight: bold; color: #28a745; font-size: 20px; }
+        body { font-family: Arial, sans-serif; padding: 30px; background-color: #f0f2f5; }
+        .form-card { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #1c1e21; font-size: 24px; }
+        .option { margin: 15px 0; font-size: 18px; }
+        input[type="submit"] { background: #1877f2; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; margin-bottom: 20px; }
+        .results-box { border-top: 2px solid #eee; padding-top: 15px; margin-top: 15px; }
+        .winner-text { color: #28a745; font-weight: bold; font-size: 20px; margin-top: 10px; }
+        ul { list-style-type: none; padding: 0; }
+        li { background: #f8f9fa; margin: 5px 0; padding: 10px; border-radius: 4px; display: flex; justify-content: space-between; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Cats vs Dogs</h1>
-        <p>Cast your vote for the best pet!</p>
-        
-        <form method="POST" class="buttons">
-            <button type="submit" name="vote" value="Cats" class="btn-cats">🐱 Cats</button>
-            <button type="submit" name="vote" value="Dogs" class="btn-dogs">🐶 Dogs</button>
+    <div class="form-card">
+        <h1>Nitin's Bike Purchase Suggestion Testing</h1>
+        <form method="POST">
+            <div class="option"><input type="radio" name="bike" value="Ather" required> Ather (Electric)</div>
+            <div class="option"><input type="radio" name="bike" value="Access 125"> Access 125</div>
+            <div class="option"><input type="radio" name="bike" value="Chetak"> Chetak (Electric)</div>
+            <div class="option"><input type="radio" name="bike" value="RE Hunter 350"> RE Hunter 350</div>
+            <input type="submit" value="Submit Recommendation">
         </form>
 
-        {% if choice %}
-            <div class="result">
-                You voted for: {{ choice }}!
-            </div>
-        {% endif %}
+        <div class="results-box">
+            <h3>Live Tally</h3>
+            <ul>
+                {% for bike, count in votes.items() %}
+                <li>
+                    <span>{{ bike }}</span>
+                    <span><strong>{{ count }}</strong> votes</span>
+                </li>
+                {% endfor %}
+            </ul>
+            
+            {% if winner %}
+                <div class="winner-text">Current Leader: {{ winner }}!</div>
+            {% endif %}
+
+            {% if choice %}
+                <p style="margin-top:20px; color: #1877f2;">You just voted for: <strong>{{ choice }}</strong></p>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
