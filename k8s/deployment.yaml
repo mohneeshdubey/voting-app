@@ -23,7 +23,7 @@ spec:
       containers:
       - name: voting-app
         # Replace <YOUR_DOCKERHUB_USERNAME> with your actual Docker Hub ID
-        image: mohneeshdubey2025/voting-app:v5
+        image: mohneeshdubey2025/voting-app:v6
         imagePullPolicy: Always
         ports:
         - containerPort: 5005
