@@ -59,7 +59,7 @@ spec:
       containers:
       - name: voting-app
         # Make sure you pushed this tag as 'v100'
-        image: mohneeshdubey2025/voting-app:v7 
+        image: mohneeshdubey2025/voting-app:v8 
         imagePullPolicy: Always
         ports:
         - containerPort: 5005
