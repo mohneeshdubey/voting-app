@@ -1,49 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Nitin's Bike Purchase Suggestion-Jan-2026-Upgrade your self</title>
+    <meta charset="UTF-8">
+    <title>Nitin Bike Purchase Suggestion – Hurry Up 🚨</title>
+
     <style>
-        body { font-family: Arial, sans-serif; padding: 30px; background-color: #f0f2f5; }
-        .form-card { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h1 { color: #1c1e21; font-size: 24px; }
-        .option { margin: 15px 0; font-size: 18px; }
-        input[type="submit"] { background: #1877f2; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; margin-bottom: 20px; }
-        .results-box { border-top: 2px solid #eee; padding-top: 15px; margin-top: 15px; }
-        .winner-text { color: #28a745; font-weight: bold; font-size: 20px; margin-top: 10px; }
-        ul { list-style-type: none; padding: 0; }
-        li { background: #f8f9fa; margin: 5px 0; padding: 10px; border-radius: 4px; display: flex; justify-content: space-between; }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #ffe5e5; /* light red background */
+        }
+
+        .form-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 520px;
+            margin: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border-top: 6px solid #dc3545;
+        }
+
+        h1 {
+            color: #dc3545;
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #b02a37;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .option {
+            margin: 14px 0;
+            font-size: 18px;
+        }
+
+        input[type="submit"] {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background: #bb2d3b;
+        }
+
+        .results-box {
+            border-top: 2px solid #f1c0c0;
+            padding-top: 15px;
+            margin-top: 20px;
+        }
+
+        .winner-text {
+            color: #198754;
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff5f5;
+            margin: 6px 0;
+            padding: 10px 12px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            border-left: 4px solid #dc3545;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
     </style>
 </head>
+
 <body>
     <div class="form-card">
-        <h1>Nitin's Bike Purchase Suggestion Testing</h1>
+        <h1>🚨 Nitin Bike Purchase Suggestion</h1>
+        <div class="subtitle">
+            Hurry up! Vote now • Updated via CI/CD
+        </div>
+
         <form method="POST">
-            <div class="option"><input type="radio" name="bike" value="Ather" required> Ather (Electric)</div>
-            <div class="option"><input type="radio" name="bike" value="Access 125"> Access 125</div>
-            <div class="option"><input type="radio" name="bike" value="Chetak"> Chetak (Electric)</div>
-            <div class="option"><input type="radio" name="bike" value="RE Hunter 350"> RE Hunter 350</div>
-            <input type="submit" value="Submit Recommendation">
+            <div class="option">
+                <input type="radio" name="bike" value="Ather" required>
+                Ather (Electric)
+            </div>
+
+            <div class="option">
+                <input type="radio" name="bike" value="Access 125">
+                Access 125
+            </div>
+
+            <div class="option">
+                <input type="radio" name="bike" value="Chetak">
+                Chetak (Electric)
+            </div>
+
+            <div class="option">
+                <input type="radio" name="bike" value="RE Hunter 350">
+                RE Hunter 350
+            </div>
+
+            <input type="submit" value="Submit Recommendation 🚀">
         </form>
 
         <div class="results-box">
-            <h3>Live Tally</h3>
+            <h3>📊 Live Tally</h3>
+
             <ul>
                 {% for bike, count in votes.items() %}
                 <li>
                     <span>{{ bike }}</span>
-                    <span><strong>{{ count }}</strong> votes</span>
+                    <strong>{{ count }}</strong>
                 </li>
                 {% endfor %}
             </ul>
-            
-            {% if winner %}
-                <div class="winner-text">Current Leader: {{ winner }}!</div>
-            {% endif %}
 
             {% if choice %}
-                <p style="margin-top:20px; color: #1877f2;">You just voted for: <strong>{{ choice }}</strong></p>
+            <div class="winner-text">
+                ✅ You voted for: {{ choice }}
+            </div>
             {% endif %}
+        </div>
+
+        <div class="footer">
+            Deployed using GitHub Actions + Docker + Argo CD
         </div>
     </div>
 </body>
 </html>
+
